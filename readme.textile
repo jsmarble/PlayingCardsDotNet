@@ -1,0 +1,7 @@
+h3. What is PlayingCardsDotNet?
+
+PlayingCardsDotNet is an implementation of a deck of playing cards for the .Net framework.
+
+h3. License
+
+This code is licensed under the Revised BSD License. For more information, see the license wiki page or the license file included with the code.
