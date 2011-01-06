@@ -5,24 +5,34 @@ using System.Text;
 
 namespace PlayingCardsDotNet
 {
+    public enum SuitColor
+    {
+        Red,
+        Black
+    }
+
     public class Suit
     {
-        public enum Color
+        protected internal Suit(string name, SuitColor color)
         {
-            Red,
-            Black
+            Color = color;
+            Name = name;
         }
 
-        internal Suit(string name, Color color)
+        public override string ToString()
         {
+            return this.Name;
         }
+
+        public string Name { get; protected set; }
+        public SuitColor Color { get; protected set; }
     }
 
     public static class Suits
     {
-        public static readonly Suit Hearts = new Suit("Hearts", Suit.Color.Red);
-        public static readonly Suit Diamonds = new Suit("Diamonds", Suit.Color.Red);
-        public static readonly Suit Spades = new Suit("Spades", Suit.Color.Black);
-        public static readonly Suit Clubs = new Suit("Clubs", Suit.Color.Black);
+        public static readonly Suit Hearts = new Suit("Hearts", SuitColor.Red);
+        public static readonly Suit Diamonds = new Suit("Diamonds", SuitColor.Red);
+        public static readonly Suit Spades = new Suit("Spades", SuitColor.Black);
+        public static readonly Suit Clubs = new Suit("Clubs", SuitColor.Black);
     }
 }

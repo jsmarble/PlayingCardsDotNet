@@ -47,17 +47,17 @@ namespace PlayingCardsDotNet.Tests
         public void NumberOfJokers_Property_Affects_Number_Of_Jokers()
         {
             int numberOfJokers = 7;
-            Deck deck = new Deck { NumberOfJokers = numberOfJokers };
+            Deck deck = new Deck { JokersPerDeck = numberOfJokers };
             Assert.Equal(numberOfJokers, deck.Jokers.Count());
             numberOfJokers = 4;
-            deck.NumberOfJokers = numberOfJokers;
+            deck.JokersPerDeck = numberOfJokers;
             Assert.Equal(numberOfJokers, deck.Jokers.Count());
         }
 
         [Fact]
         public void Zero_Jokers_Returns_Empty_Joker_List()
         {
-            Deck deck = new Deck { NumberOfJokers = 0 };
+            Deck deck = new Deck { JokersPerDeck = 0 };
             Assert.Equal(0, deck.Jokers.Count());
         }
 

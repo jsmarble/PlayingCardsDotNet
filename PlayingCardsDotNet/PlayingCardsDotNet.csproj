@@ -46,9 +46,18 @@
     <Compile Include="AceValue.cs" />
     <Compile Include="Card.cs" />
     <Compile Include="Deck.cs" />
-    <Compile Include="DefaultCardComparer.cs" />
-    <Compile Include="DefaultCardEqualityComparer.cs" />
+    <Compile Include="Comparers\DefaultCardComparer.cs" />
+    <Compile Include="Comparers\DefaultCardEqualityComparer.cs" />
+    <Compile Include="Extensions.cs" />
+    <Compile Include="Comparers\FlushComparer.cs" />
+    <Compile Include="Hands\Hand.cs" />
+    <Compile Include="Comparers\HandComparer.cs" />
+    <Compile Include="Hands\Pair.cs" />
+    <Compile Include="Comparers\PairComparer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Hands\Flush.cs" />
+    <Compile Include="Hands\Straight.cs" />
+    <Compile Include="Comparers\StraightComparer.cs" />
     <Compile Include="Suit.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

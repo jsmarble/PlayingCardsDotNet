@@ -9,7 +9,13 @@ namespace PlayingCardsDotNet
     public class Deck : IEnumerable<Card>
     {
         public Deck()
+            : this(1)
         {
+        }
+
+        public Deck(int numberOfDecks)
+        {
+            this.NumberOfDecks = numberOfDecks;
         }
 
         public IEnumerable<Card> Hearts
@@ -34,33 +40,46 @@ namespace PlayingCardsDotNet
 
         public IEnumerable<Card> Jokers
         {
-            get { return GenerateJokers(this.NumberOfJokers); }
+            get { return GenerateJokers(this.JokersPerDeck); }
         }
 
-        private int numberOfJokers;
-        public int NumberOfJokers
+        private int jokersPerDeck;
+        public int JokersPerDeck
         {
-            get { return numberOfJokers; }
+            get { return jokersPerDeck; }
             set
             {
                 if (value < 0)
-                    throw new ArgumentOutOfRangeException("NumberOfJokers", "Value cannot be less than zero.");
-                numberOfJokers = value;
+                    throw new ArgumentOutOfRangeException("JokersPerDeck", "Value must be greater than zero.");
+                jokersPerDeck = value;
             }
         }
+
+        private int numberOfDecks;
+        public int NumberOfDecks
+        {
+            get { return numberOfDecks; }
+            set
+            {
+                if (value < 1)
+                    throw new ArgumentOutOfRangeException("NumberOfDecks", "Value must be greater than one.");
+                numberOfDecks = value;
+            }
+        }
+
         public AceValue AceValue { get; set; }
 
-        private static IEnumerable<Card> GenerateJokers(int count)
+        private IEnumerable<Card> GenerateJokers(int count)
         {
             if (count < 0)
                 throw new ArgumentOutOfRangeException("count", "Value cannot be less than zero.");
-            return Enumerable.Range(1, count).Select(x => new Card("Joker", 0, null));
+            return Enumerable.Range(1, count).Select(x => new Card("Joker", 0, null)).Repeat(this.JokersPerDeck);
         }
 
         private IEnumerable<Card> GenerateCards(Suit suit)
         {
             int aceNumeric = AceValue == AceValue.High ? 14 : 1;
-            return Enumerable.Range(2, 12).Append(aceNumeric).Select(x => new Card(Card.NumericValueToFaceValue(x), x, suit));
+            return Enumerable.Range(2, 12).Append(aceNumeric).Select(x => new Card(Card.NumericValueToFaceValue(x), x, suit)).Repeat(this.numberOfDecks);
         }
 
         #region IEnumerable<Card> Members
