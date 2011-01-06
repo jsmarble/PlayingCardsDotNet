@@ -5,7 +5,8 @@ using System.Text;
 
 namespace PlayingCardsDotNet.Tests
 {
-    public class Class1
+    public class CardTests
     {
+
     }
 }

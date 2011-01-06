@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="LinqExtended">
+      <HintPath>LinqExtended\LinqExtended.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -40,8 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AceValue.cs" />
     <Compile Include="Card.cs" />
     <Compile Include="Deck.cs" />
+    <Compile Include="DefaultCardComparer.cs" />
+    <Compile Include="DefaultCardEqualityComparer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Suit.cs" />
   </ItemGroup>
