@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Extended;
+
 using System.Text;
 
 namespace PlayingCardsDotNet
@@ -73,7 +73,7 @@ namespace PlayingCardsDotNet
         {
             if (count < 0)
                 throw new ArgumentOutOfRangeException("count", "Value cannot be less than zero.");
-            return Enumerable.Range(1, count).Select(x => new Card("Joker", 0, null)).Repeat(this.JokersPerDeck);
+            return Enumerable.Range(1, count).Select(x => new Card("Joker", 0, null)).Repeat(this.numberOfDecks);
         }
 
         private IEnumerable<Card> GenerateCards(Suit suit)

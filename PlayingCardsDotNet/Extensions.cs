@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Extended;
-using System.Text;
 
 namespace PlayingCardsDotNet
 {
@@ -12,6 +9,11 @@ namespace PlayingCardsDotNet
         {
             int totalCards = hands * cardsPerHand;
             return cards.Take(totalCards).Batch(cardsPerHand);
+        }
+
+        public static Hand GetHand(this IEnumerable<Card> cards, IHandCalculator handCalculator)
+        {
+            return handCalculator.GetHand(cards);
         }
     }
 }

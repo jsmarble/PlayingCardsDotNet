@@ -3,18 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace PlayingCardsDotNet
+namespace PlayingCardsDotNet.Comparers
 {
-    public class PairComparer : HandComparer<Pair>
+    public class PairComparer : IComparer<Hand>
     {
-        public override int Compare(Pair x, Pair y)
+        public int Compare(Hand x, Hand y)
         {
+            //TODO: Make a full implementation of hand comparison.
             return x.Cards.Max(card => card.NumericValue).CompareTo(y.Cards.Max(card => card.NumericValue));
-        }
-
-        public override bool CanCompare(Hand hand)
-        {
-            return hand is Pair;
         }
     }
 }
